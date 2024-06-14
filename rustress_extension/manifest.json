@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "rustress",
+  "name": "ru-stresser",
   "version": "1.0",
   "description": "Stress marker for Russian, running in the browser",
 
