@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "ru-stresser",
+  "version": "1.0",
+  "description": "Stress marker for Russian, running in the browser",
+
+"content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+    ],
+
+"web_accessible_resources": [
+  {
+    "resources": ["dictionary"],
+    "extension_ids": ["*"],
+    "matches": ["<all_urls>"]
+  }
+],
+"permissions": ["contentSettings"]
+}
