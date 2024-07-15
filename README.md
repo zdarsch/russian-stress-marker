@@ -1,11 +1,11 @@
 # russian-stress-marker
 
-A lightweight russian stress marking tool running in the browser.
+A lightweight russian stress marking tool running in the browser, on Windows. A chrome extension, because chromium based browsers have  some weighty advantages over Firefox. Chrome extensions stay installed, in developer mode, when the browser closes. Additionally,  the stress marker runs much faster and may also add  stress marks to local files.          
+The stress engine comprises two files: "dictionary" and  "content_script".
 
-The folder "rustress_extension" contains a simple unsigned Firefox extension (manifest version 2).
-The extension was tested with Firefox ESR 52.9.0  on Windows XP and with  Waterfox on Windows 10.
+The  "dictionary" (a Uint32Array) is basically a sequence of 32 bits unsigned integers ( all of them in little endian order, since Windows is little endian). It is a compact representation of a finite state automaton (with final transitions) recognizing  a list of  2 039 133 accented russian words ( all of them in small case). 
 
-The folder "chrome_extension" (manifest version 3) is an adaptation to chrome based browsers.
-It was tested on "Vivaldi" and "Iridium" browsers.
+The "content_script"  scans the body of a web page for russian words and searches  the "dictionary" for  accented equivalents. By design, a  word has at most one equivalent in the "dictionary".
 
-To do: migrate the Firefox extension to manifest version 3.
+The extension is designed to meet my wishes as a learner of russian. Homographs (words such as замок, кому, моя, ...)  are left unstressed. To help me give  homographs their right stresses,  I  prepare  a dictionary of hints.
+
