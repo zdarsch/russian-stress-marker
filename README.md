@@ -1,6 +1,7 @@
 # russian-stress-marker
 
 A lightweight russian stress marking tool running in the browser, on Windows. A chrome extension, because chromium based browsers have  some weighty advantages over Firefox. Chrome extensions stay installed, in developer mode, when the browser closes. Additionally,  the stress marker runs much faster and may also add  stress marks to local files.          
+
 The stress engine comprises two files: "dictionary" and  "content_script".
 
 The  "dictionary" (a Uint32Array) is basically a sequence of 32 bits unsigned integers ( all of them in little endian order, since Windows is little endian). It is a compact representation of a finite state automaton (with final transitions) recognizing  a list of  2 039 133 accented russian words ( all of them in small case). 
